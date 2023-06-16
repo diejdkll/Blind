@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.blind.presenter.ui.InputActivity"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>
