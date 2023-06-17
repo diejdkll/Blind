@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.blind.presenter.viewmodel.InputViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +30,7 @@
                 android:hint="카테고리"
                 android:imeOptions="actionNext"
                 android:inputType="text"
+                android:text="@={viewModel.category}"
                 android:textAppearance="@style/TextAppearance.App">
 
                 <requestFocus />
@@ -50,6 +54,7 @@
                 android:hint="제목"
                 android:imeOptions="actionNext"
                 android:inputType="text"
+                android:text="@={viewModel.title}"
                 android:textAppearance="@style/TextAppearance.App" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,6 +78,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="textMultiLine"
                 android:minHeight="150dp"
+                android:text="@={viewModel.content}"
                 android:textAppearance="@style/TextAppearance.App" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -82,6 +88,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.insertData()}"
             android:paddingStart="@dimen/padding"
             android:paddingTop="@dimen/padding_small"
             android:paddingEnd="@dimen/padding"
