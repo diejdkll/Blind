@@ -52,7 +52,7 @@ class InputViewModel @Inject constructor(
                     content = contentValue
                 ) ?: Content(category = categoryValue, title = titleValue, content = contentValue)
             ).also {
-                _doneEvent.postValue(Pair(true, if(it as Boolean) "완료!" else "저장 할 수 없습니다."))
+                _doneEvent.postValue(Pair(true, if (it as Boolean) "완료!" else "저장 할 수 없습니다."))
             }
         }
     }
