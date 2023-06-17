@@ -1,6 +1,7 @@
 package com.blind.di.module
 
 import com.blind.data.repository.ContentRepositoryImpl
+import com.blind.data.source.local.dao.ContentDao
 import com.blind.data.source.remote.ContentService
 import com.blind.domain.repository.ContentRepository
 import dagger.Module
@@ -16,6 +17,7 @@ object RepositoryModule {
     @ViewModelScoped
     @Provides
     fun providesContentRepository(
-        contentService: ContentService
-    ): ContentRepository = ContentRepositoryImpl(contentService)
+        contentService: ContentService,
+        contentDao: ContentDao
+    ): ContentRepository = ContentRepositoryImpl(contentService, contentDao)
 }

@@ -1,7 +1,9 @@
 package com.blind.data.model
 
+import com.blind.data.model.Entity.ContentEntity
 import com.blind.data.model.dto.ContentDto
 import com.blind.domain.model.Content
+import java.util.*
 
 object ContentMapper {
 
@@ -13,5 +15,16 @@ object ContentMapper {
         likeCount = likeCount,
         commentCount = commentCount,
         viewCount = viewCount
+    )
+
+    fun Content.toEntity() = ContentEntity(
+        id = id ?: -1,
+        title = title,
+        content = content,
+        category = category,
+        likeCount = likeCount ?: 0,
+        commentCount = commentCount ?: 0,
+        viewCount = viewCount ?: 0,
+        createDate = createdDate ?: Date(),
     )
 }
