@@ -41,7 +41,7 @@ class InputActivity : AppCompatActivity() {
         return true
     }
 
-    fun <T: Serializable> Intent.intentSerializable(key: String, clazz: Class<T>): T? {
+    private fun <T: Serializable> Intent.intentSerializable(key: String, clazz: Class<T>): T? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             this.getSerializableExtra(key, clazz)
         } else {
