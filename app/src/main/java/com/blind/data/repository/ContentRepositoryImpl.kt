@@ -18,6 +18,9 @@ class ContentRepositoryImpl @Inject constructor(
 ) : ContentRepository {
     override fun loadList(): Flow<List<Content>> {
         return flow {
+            contentDao.selectAll().collect { list ->
+                emit(list.map { it.toContent() })
+            }
             emit(
                 try {
                     contentService.getList().data.map { it.toContent() }
