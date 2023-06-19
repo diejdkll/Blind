@@ -50,4 +50,15 @@ class ContentRepositoryImpl @Inject constructor(
             false
         }
     }
+
+    override suspend fun delete(item: Content): Boolean {
+        return try {
+            item.id?.let { id ->
+                contentService.deleteItem(id)
+            }
+            true
+        } catch (e: IOException) {
+            false
+        }
+    }
 }
